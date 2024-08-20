@@ -196,8 +196,9 @@ posixspawn_file_actions_addopen(VALUE key, VALUE val, posix_spawn_file_actions_t
  * if not.
  */
 static int
-posixspawn_file_actions_operations_iter(VALUE key, VALUE val, posix_spawn_file_actions_t *fops)
+posixspawn_file_actions_operations_iter(VALUE key, VALUE val, VALUE fops_value)
 {
+    posix_spawn_file_actions_t *fops = (posix_spawn_file_actions_t *)fops_value;
 	int act;
 
 	act = posixspawn_file_actions_addclose(key, val, fops);
